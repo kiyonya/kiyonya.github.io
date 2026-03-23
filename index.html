@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiyuu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: rgb(22, 22, 22);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        width: 100vw;
+        height: 100vh;
+        user-select: none;
+      }
+
+      .avatar-container {
+        width: 14rem;
+        height: 14rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .layer-2,
+      .layer-1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .layer-1 {
+        filter: blur(15px);
+        opacity: 0.3;
+        bottom: -0.2rem;
+        transition: .3s;
+      }
+      .avatar-container:hover .layer-1 {
+        bottom: -0.5rem;
+        opacity: 0.5;
+      }
+      .avatar {
+        width: 14rem;
+        height: 14rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .me {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        height: fit-content;
+      }
+
+      p {
+        opacity: 0.5;
+      }
+
+      h2 {
+        font-weight: bold;
+        font-size: 1.9rem;
+      }
+
+      .github {
+        width: 2rem;
+        height: 2rem;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .contacts {
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="me">
+      <div class="avatar-container">
+        <img src="./static/img/avatar.jpg" alt="" class="layer-1" />
+        <img src="./static/img/avatar.jpg" alt="" class="layer-2" />
+      </div>
+      <h2 style="margin-top: 0.5rem">I'm Kiyuu</h2>
+      <p>Amateur developer &nbsp;|&nbsp; I make something fun.</p>
+      <div class="contacts">
+        <a href="https://github.com/kiyonya/" target="_blank">
+          <img src="./static/img/github.png" alt="" class="github" />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

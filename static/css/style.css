@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --page-padding: 1.5rem;
+    --bg-dark: rgb(22, 22, 22);
+    --blur-layer-opacity: 0.3;
+    --blur-hover-opacity: 0.5;
+    --text-light: white;
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --avatar-size: 14rem;
+    --github-icon-size: 2rem;
+    --plane-icon-size: 1.7rem;
+    --transition-default: 0.3s ease;
+}
+
+body {
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', sans-serif;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.background .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    mix-blend-mode: overlay;
+    transition: 0.2s;
+    will-change: transform;
+}
+
+.background .mask {
+    opacity: 1;
+    mask: radial-gradient(circle,
+            rgba(0, 0, 0, 0) 10%,
+            rgba(0, 0, 0, 1) 80%);
+    background: var(--bg-dark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.title {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: var(--page-padding);
+    gap: 0.3rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.title .plane {
+    width: var(--plane-icon-size);
+    height: var(--plane-icon-size);
+    object-fit: cover;
+}
+
+.title .text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-light);
+}
+
+.me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    z-index: 5;
+    position: relative;
+}
+
+.me .avatar-container {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.me .avatar-container .blur-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: blur(15px);
+    opacity: var(--blur-layer-opacity);
+    bottom: -0.2rem;
+    transition: var(--transition-default);
+}
+
+.me .avatar-container .avatar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.me .avatar-container:hover .blur-layer {
+    bottom: -0.5rem;
+    opacity: var(--blur-hover-opacity);
+}
+
+.me .name {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.me .bio {
+    opacity: 0.5;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+.me .bio:hover {
+    text-decoration: underline;
+}
+
+.me .contacts {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.me .contacts .logo {
+    width: var(--github-icon-size);
+    height: var(--github-icon-size);
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.me .contacts .github:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.footer {
+    position: absolute;
+    bottom: var(--page-padding);
+    height: fit-content;
+    opacity: 0.5;
+    font-size: 0.95rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
